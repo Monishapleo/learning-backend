@@ -1,0 +1,21 @@
+package com.practice.dsa.arrays;
+
+public class VariableSlidingWindow {
+    static int minLengthArr(int[] arr, int target) {
+        int left = 0;
+        int sum = 0;
+        int minLength = Integer.MAX_VALUE;
+
+        for (int right = 0; right < arr.length; right++) {
+            sum += arr[right];
+
+            while (sum >= target) {
+                minLength = Math.min(minLength, right - left + 1);
+                sum -= arr[left];
+                left++;
+            }
+        }
+
+        return minLength == Integer.MAX_VALUE ? 0 : minLength;
+    }
+}
