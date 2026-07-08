@@ -1,6 +1,49 @@
 package com.practice.dsa.arrays;
 
 public class FixedSlidingWindow {
+
+    /**
+     * ==========================================================
+     * Pattern : Fixed Sliding Window
+     * ==========================================================
+     *
+     * Description:
+     * Window size remains constant.
+     *
+     * When to Use:
+     * - Size k
+     * - Fixed Window
+     * - Maximum Sum
+     * - Minimum Sum
+     * - Average of Size k
+     *
+     * Mental Model:
+     *
+     * Build First Window
+     *        ↓
+     * Store Answer
+     *        ↓
+     * Slide
+     *        ↓
+     * Remove Left
+     *        ↓
+     * Add Right
+     *        ↓
+     * Update Answer
+     *
+     * Core Formula:
+     *
+     * windowSum = windowSum - arr[i-k] + arr[i];
+     *
+     * Time Complexity:
+     * O(n)
+     *
+     * Space Complexity:
+     * O(1)
+     *
+     * ==========================================================
+     */
+
     static int maxSumSubArray(int[] arr, int k){
         if (arr == null || arr.length == 0 || k <= 0 || k > arr.length) {
             throw new IllegalArgumentException("Invalid input");

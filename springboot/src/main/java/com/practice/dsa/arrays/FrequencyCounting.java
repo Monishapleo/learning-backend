@@ -4,6 +4,45 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FrequencyCounting {
+
+    /**
+     * ==========================================================
+     * Pattern : Frequency Counting
+     * ==========================================================
+     *
+     * Description:
+     * Count occurrences of characters or numbers.
+     *
+     * When to Use:
+     * - Anagram
+     * - Character Count
+     * - Frequency Matching
+     * - Duplicate Count
+     *
+     * Mental Model:
+     *
+     * Count
+     * Compare
+     * Verify
+     *
+     * Methods:
+     * - HashMap
+     * - Frequency Array
+     *
+     * Common Problems:
+     * - Valid Anagram
+     * - Ransom Note
+     * - Find the Difference
+     *
+     * Time Complexity:
+     * O(n)
+     *
+     * Space Complexity:
+     * O(n)
+     *
+     * ==========================================================
+     */
+
     static boolean isAnagram(String str,String str1){
         Map<Character,Integer> frequencyMap1 = new HashMap<>();
         Map<Character,Integer> frequencyMap2 = new HashMap<>();

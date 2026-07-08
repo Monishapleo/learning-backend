@@ -1,6 +1,46 @@
 package com.practice.dsa.arrays;
 
 public class RunningBest {
+
+    /**
+     * ==========================================================
+     * Pattern : Running Best
+     * ==========================================================
+     *
+     * Description:
+     * Maintain the best answer while traversing the array.
+     *
+     * When to Use:
+     * - Maximum
+     * - Minimum
+     * - Highest
+     * - Lowest
+     * - Longest
+     * - Best Profit
+     *
+     * Mental Model:
+     *
+     * Current Answer
+     *       ↓
+     * Compare
+     *       ↓
+     * Update Best
+     *
+     * Common Problems:
+     * - Maximum Consecutive Ones
+     * - Best Time to Buy and Sell Stock
+     * - Maximum Element
+     * - Minimum Element
+     *
+     * Time Complexity:
+     * O(n)
+     *
+     * Space Complexity:
+     * O(1)
+     *
+     * ==========================================================
+     */
+
     static int bestTimeToBuyAndSellStock(int[] prices){
         int maxProfit=0;
         int minPrice=prices[0];

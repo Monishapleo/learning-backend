@@ -5,6 +5,45 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Hashing {
+
+    /**
+     * ==========================================================
+     * Pattern : Hashing
+     * ==========================================================
+     *
+     * Description:
+     * Store previously seen elements for fast lookup.
+     *
+     * When to Use:
+     * - Fast Lookup
+     * - Duplicates
+     * - Complements
+     * - Missing Values
+     * - Membership Check
+     *
+     * Mental Model:
+     *
+     * Have I seen this before?
+     *
+     *        ↓
+     *
+     * HashMap / HashSet
+     *
+     * Common Problems:
+     * - Two Sum
+     * - Contains Duplicate
+     * - Happy Number
+     * - Longest Consecutive Sequence
+     *
+     * Time Complexity:
+     * O(n)
+     *
+     * Space Complexity:
+     * O(n)
+     *
+     * ==========================================================
+     */
+
     /*
     Because we should only match the current element with elements we've already seen.
     If we insert first, the current element could match itself, producing incorrect results like {0,0}

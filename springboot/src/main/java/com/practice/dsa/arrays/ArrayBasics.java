@@ -5,6 +5,43 @@ import java.util.Arrays;
 
 public class ArrayBasics {
 
+    /**
+     * ==========================================================
+     * Pattern : Array Basics
+     * ==========================================================
+     *
+     * Description:
+     * Basic array traversal and manipulation problems.
+     * These problems build the foundation before learning
+     * advanced DSA patterns.
+     *
+     * Common Problems:
+     * - Find Maximum
+     * - Find Minimum
+     * - Find Second Largest
+     * - Reverse Array
+     * - Check Sorted
+     * - Move Zeros
+     * - Remove Duplicates
+     *
+     * Mental Model:
+     * Traverse the array once while maintaining
+     * required variables.
+     *
+     * Time Complexity:
+     * Most Problems -> O(n)
+     *
+     * Space Complexity:
+     * O(1)
+     *
+     * Interview Keywords:
+     * Array Traversal
+     * Basic Manipulation
+     * Two Indexes
+     *
+     * ==========================================================
+     */
+
     static int findMax(int[] arr){
         int largest=Integer.MIN_VALUE;
         for(int num: arr){
