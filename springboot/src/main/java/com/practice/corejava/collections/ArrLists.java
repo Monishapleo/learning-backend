@@ -18,6 +18,16 @@ public class ArrLists {
 
         //System.out.println(isSorted(arr));
        // reverse(arr);
+        String s1 = "Java";
+        String s2 = new String("Java").intern();
+
+        System.out.println(s1.hashCode());
+        System.out.println(s2.hashCode());
+        System.out.println(s1 == s2);
+        System.out.println(s1.equals(s2));
+        String s = null;
+
+        System.out.println(s instanceof String);
     }
 
    static int findMax(int[] arr){
