@@ -1,5 +1,7 @@
 package com.practice.dsa.arrays;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
+
 import java.util.Arrays;
 
 public class TwoPointers {
@@ -57,8 +59,9 @@ public class TwoPointers {
      * ==========================================================
      */
     public static void main(String[] args) {
-        int[] arr={-7,1,2,4,3,-8,-9};
-        //System.out.println(Arrays.toString(twoSumSorted(arr, 8)));
+        int[] arr = {1,1, 2, 3, 4, 5, 6};
+        //System.out.println(Arrays.toString(findPairWithDifference(arr, 3)));
+        System.out.println(threeSum(arr, 4));
     }
     static int[] twoSumSorted(int[] arr, int target) {
 
@@ -202,5 +205,66 @@ public class TwoPointers {
 
         }
         return maxAreaSoFar;
+    }
+    static int[] findPairWithDifference(int[] arr, int target){
+        if(arr==null||arr.length<2){
+            throw new IllegalArgumentException("invalid input");
+        }
+        int start = 0;
+        int end=1;
+        while(end<arr.length){
+            if (start == end) {
+                end++;
+                continue;
+            }
+
+            int difference=arr[end]-arr[start];
+            if(difference==target) {
+                return new int[]{start, end};
+            }else if(difference>target){
+                start++;
+            }else{
+                end++;
+            }
+        }
+        return new int[]{-1,-1};
+    }
+    static int[] findMinMax(int[] arr){
+        if(arr==null||arr.length<2){
+            throw new IllegalArgumentException("invalid input");
+        }
+        int smallest= arr[0];
+        int largest= arr[0];
+        for (int i=1;i<arr.length;i++) {
+            if (arr[i] > largest) {
+                largest = arr[i];
+            }
+
+            if (arr[i] < smallest) {
+                smallest = arr[i];
+            }
+        }
+        return new int[]{smallest,largest};
+    }
+    static boolean threeSum(int[] arr, int target){
+        if(arr==null||arr.length<3){
+            throw new IllegalArgumentException("invalid input");
+        }
+        for(int i=0;i<arr.length;i++){
+            int neededSum=target-arr[i];
+            int left=i+1;
+            int right=arr.length-1;
+            while (left<right){
+                int currentSum=arr[left]+arr[right];
+                if(currentSum==neededSum){
+                    return true;
+                }else if(currentSum<neededSum){
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+        }
+        return false;
     }
 }

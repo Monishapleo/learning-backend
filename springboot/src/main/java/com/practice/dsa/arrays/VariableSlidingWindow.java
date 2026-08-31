@@ -60,4 +60,45 @@ public class VariableSlidingWindow {
 
         return minLength == Integer.MAX_VALUE ? 0 : minLength;
     }
+
+    static boolean hasSubarrayWithSum(int[] arr, int target){
+        if(arr==null||arr.length==0){
+            throw new IllegalArgumentException("Array cannot be null or empty");
+        }
+        int left = 0;
+        int windowSum = 0;
+        for(int right=0;right<arr.length;right++){
+            windowSum+=arr[right];
+            while (windowSum>=target){
+                if(windowSum==target){
+                    return true;
+                }
+                windowSum-=arr[left];
+                left++;
+            }
+
+        }
+
+        return false;
+    }
+
+    static int maxSubarrayLength(int[] arr, int target){
+        if(arr==null||arr.length==0){
+            throw new IllegalArgumentException("Array cannot be null or empty");
+        }
+        int left=0;
+        int windowSum=0;
+        int maxLength=0;
+        for(int right=0;right<arr.length;right++ ){
+            windowSum+=arr[right];
+            while (windowSum > target) {
+                windowSum -= arr[left];
+                left++;
+            }
+            int currentLength = right - left + 1;
+            maxLength = Math.max(maxLength, currentLength);
+        }
+        return maxLength;
+    }
+
 }

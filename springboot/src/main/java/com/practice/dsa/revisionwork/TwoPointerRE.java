@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 public class TwoPointerRE {
     public static void main(String[] args) {
-        int[] arr={0,0,1,1,2,2,3,3,4,5};
+        int[] arr={3,3,4,5};
+        System.out.println(Arrays.toString(twoSumSortedDifference(arr,1)));
        // removeElement(arr,2);
         System.out.println(isPalindrome("madams"));
     }
@@ -139,5 +140,24 @@ public class TwoPointerRE {
             end--;
         }
         return true;
+    }
+    static int[] twoSumSortedDifference(int[] arr, int target){
+        if(arr==null||arr.length==0){
+            throw new IllegalArgumentException("Array cannot be null or empty");
+        }
+        int start=0;
+        int end=arr.length-1;
+        while(start<end){
+            int difference =arr[end]-arr[start];
+            if(difference ==target){
+                return new int[]{start,end};
+            }else if(difference < target){
+                start++;
+            }else{
+                end--;
+            }
+
+        }
+        return new int[]{-1,-1};
     }
 }

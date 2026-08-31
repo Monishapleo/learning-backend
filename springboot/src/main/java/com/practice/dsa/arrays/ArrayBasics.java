@@ -42,6 +42,10 @@ public class ArrayBasics {
      * ==========================================================
      */
 
+    public static void main(String[] args) {
+        int[] arr = {-10, -8, 2, 3};
+        System.out.println(findMaxProductOfTwo(arr));
+    }
     static int findMax(int[] arr){
         int largest=Integer.MIN_VALUE;
         for(int num: arr){
@@ -53,7 +57,7 @@ public class ArrayBasics {
     }
 
     static int findSecondLargest(int[] arr){
-        if (arr == null || arr.length == 2) {
+        if (arr == null || arr.length < 2) {
             throw new IllegalArgumentException("Array cannot be null or empty");
         }
         int largest=Integer.MIN_VALUE;
@@ -155,5 +159,29 @@ public class ArrayBasics {
         }
         return j+1;
     }
+    static int findMaxProductOfTwo(int[] arr){
+        if(arr==null||arr.length<2){
+            throw new IllegalArgumentException("invalid input");
+        }
+        int largest=Integer.MIN_VALUE;
+        int secondLargest=Integer.MIN_VALUE;
+        int smallest=Integer.MAX_VALUE;
+        int secondSmallest=Integer.MAX_VALUE;
+        for(int num : arr){
+            if(num<smallest){
+                secondSmallest = smallest;
+                smallest = num;
+            }else if(num<secondSmallest && num!=smallest){
+                secondSmallest=num;
+            }
+            if(num>largest){
+                secondLargest = largest;
+                largest = num;
+            }else if(num>secondLargest && num!=largest){
+                secondLargest=num;
+            }
 
+        }
+        return Math.max(largest*secondLargest,smallest*secondSmallest);
+    }
 }

@@ -1,8 +1,10 @@
 package com.practice.dsa.revisionwork;
 
+import java.util.Arrays;
+
 public class SlidingwindowRE {
     public static void main(String[] args) {
-
+        int[] arr={3,3,4,5,7};
     }
     static int maxSumSubarray(int[] arr, int k){
         if(arr==null|| arr.length==0){
@@ -47,6 +49,23 @@ public class SlidingwindowRE {
         }
         return minLength == Integer.MAX_VALUE ? 0 : minLength;
     }
+    static boolean hasSubarrayWithSum(int[] arr, int target){
+        if(arr==null||arr.length==0){
+            throw new IllegalArgumentException("Array cannot be null or empty");
+        }
+        int left=0;
+        int windowSum=0;
+        for(int right=0;right<arr.length;right++){
+            windowSum+=arr[right];
+            while (windowSum>=target){
+                if(windowSum==target){
+                    return true;
+                }
+                windowSum-=arr[left];
+                left++;
+            }
 
-
+        }
+        return false;
+    }
 }
